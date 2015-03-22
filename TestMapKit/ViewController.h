@@ -13,6 +13,7 @@
 @interface ViewController : UIViewController <CLLocationManagerDelegate>
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 @property(nonatomic, retain) CLLocationManager *locationManager;
+- (IBAction)onRefresh:(id)sender;
 
 @end
 

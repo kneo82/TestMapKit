@@ -1,0 +1,51 @@
+digraph G {
+	node [shape=box];
+	"Pods-AFNetworking-dummy" -> {};
+	"AFURLResponseSerialization" -> {};
+	"AFNetworkReachabilityManager" -> {};
+	"AFNetworkActivityIndicatorManager" -> "AFURLSessionManager";
+	"AFNetworkActivityIndicatorManager" -> "AFHTTPRequestOperation";
+	"AFURLRequestSerialization" -> {};
+	"ViewController" -> {};
+	"TestMapKitTests" -> {};
+	"AFNetworking" -> "AFNetworkReachabilityManager";
+	"AFNetworking" -> "AFURLResponseSerialization";
+	"AFNetworking" -> "AFURLRequestSerialization";
+	"AFNetworking" -> "AFSecurityPolicy";
+	"AFNetworking" -> "AFHTTPRequestOperation";
+	"AFNetworking" -> "AFURLSessionManager";
+	"AFNetworking" -> "AFURLConnectionOperation";
+	"AFNetworking" -> "AFHTTPSessionManager";
+	"AFNetworking" -> "AFHTTPRequestOperationManager";
+	"AppDelegate" -> {};
+	"AFSecurityPolicy" -> {};
+	"AFURLConnectionOperation" -> "AFURLRequestSerialization";
+	"AFURLConnectionOperation" -> "AFURLResponseSerialization";
+	"AFURLConnectionOperation" -> "AFSecurityPolicy";
+	"Pods-environment" -> {};
+	"AFHTTPRequestOperationManager" -> "AFURLResponseSerialization";
+	"AFHTTPRequestOperationManager" -> "AFHTTPRequestOperation";
+	"AFHTTPRequestOperationManager" -> "AFSecurityPolicy";
+	"AFHTTPRequestOperationManager" -> "AFURLRequestSerialization";
+	"AFHTTPRequestOperationManager" -> "AFNetworkReachabilityManager";
+	"Pods-dummy" -> {};
+	"AFURLSessionManager" -> "AFURLRequestSerialization";
+	"AFURLSessionManager" -> "AFURLResponseSerialization";
+	"AFURLSessionManager" -> "AFNetworkReachabilityManager";
+	"AFURLSessionManager" -> "AFSecurityPolicy";
+	"main" -> "AppDelegate";
+	"AFHTTPSessionManager" -> "AFURLRequestSerialization";
+	"AFHTTPSessionManager" -> "AFURLResponseSerialization";
+	"AFHTTPSessionManager" -> "AFURLSessionManager";
+	"AFHTTPRequestOperation" -> "AFURLConnectionOperation";
+	
+	"Pods-AFNetworking-prefix" [color=red];
+	"Pods-AFNetworking-prefix" -> "Pods-environment" [color=red];
+	
+	edge [color=blue, dir=both];
+	
+	edge [color=black];
+	node [shape=plaintext];
+	"Categories" [label="UIProgressView+AFNetworking\nUIWebView+AFNetworking\nUIButton+AFNetworking\nUIKit+AFNetworking\nUIRefreshControl+AFNetworking\nUIAlertView+AFNetworking\nUIActivityIndicatorView+AFNetworking\nUIImageView+AFNetworking"];
+}
+
