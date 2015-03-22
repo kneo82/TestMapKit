@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F429BB43-22F3-4892-969B-9747D7ACB896</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TestMapKit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9134F15290A19914F055BDC3F3AADB2D9C1B0B90</key>
+		<string>https://github.com/kneo82/TestMapKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TestMapKit.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9134F15290A19914F055BDC3F3AADB2D9C1B0B90</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kneo82/TestMapKit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9134F15290A19914F055BDC3F3AADB2D9C1B0B90</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9134F15290A19914F055BDC3F3AADB2D9C1B0B90</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TestMapKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

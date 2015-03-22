@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import <AFNetworking.h>
 
+#import "MyLocation.h"
+
 #define METERS_PER_MILE 1609.344
 
 @interface ViewController () 
@@ -77,6 +79,8 @@
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *responseString = responseObject;
         NSLog(@"Response: %@", responseString);
+        
+        [self plotCrimePositions:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -84,5 +88,50 @@
 
 #pragma mark -
 #pragma mark Private
+
+- (void)plotCrimePositions:(id)responseData {
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        [_mapView removeAnnotation:annotation];
+    }
+    
+    for (NSDictionary *item in responseData) {
+        NSDictionary *location = item[@"location_1"];
+        
+        NSNumber * latitude = [NSDecimalNumber decimalNumberWithString:location[@"latitude"]];
+        NSNumber * longitude = [NSDecimalNumber decimalNumberWithString:location[@"longitude"]];
+        NSString * crimeDescription = item[@"chargedescription"];
+        NSString * address = item[@"arrestlocation"];
+
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = latitude.doubleValue;
+        coordinate.longitude = longitude.doubleValue;
+        MyLocation *annotation = [[MyLocation alloc] initWithName:crimeDescription address:address coordinate:coordinate] ;
+        [_mapView addAnnotation:annotation];
+    }
+}
+
+#pragma mark -
+#pragma mark MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"MyLocation";
+    if ([annotation isKindOfClass:[MyLocation class]]) {
+        
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            UIImage *image = [UIImage imageNamed:@"arrest"];
+            annotationView.image = image;// [UIImage imageNamed:@"arrest"];//here we use a nice image instead of the default pins
+        } else {
+            annotationView.annotation = annotation;
+        }
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
 
 @end
